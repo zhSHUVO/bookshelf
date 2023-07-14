@@ -1,22 +1,14 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-
-type Inputs = {
-    title: string;
-    author: string;
-    image: string;
-    price: number;
-    genre: string;
-    publicationDate: string;
-};
+import { IBook } from "../types/globalTypes";
 
 export default function Add() {
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<Inputs>();
+    } = useForm<IBook>();
 
-    const onSubmit: SubmitHandler<Inputs> = (data) => {
+    const onSubmit: SubmitHandler<IBook> = (data) => {
         console.log(data);
     };
     return (
@@ -25,55 +17,77 @@ export default function Add() {
                 onSubmit={(event) => void handleSubmit(onSubmit)(event)}
                 className="flex flex-col lg:w-1/4 w-3/4	shadow-2xl bg-base-100 rounded-xl p-5"
             >
-                <input
-                    placeholder="Title"
-                    className="my-1 input input-bordered w-full"
-                    type="text"
-                    {...register("title", { required: true })}
-                />
-                {errors.title && <span>Title is required</span>}
+                <div className="indicator w-full">
+                    <input
+                        placeholder="Title"
+                        className="my-1 input input-bordered w-full"
+                        type="text"
+                        {...register("title", { required: true })}
+                    />
+                    {errors.title && (
+                        <span className="indicator-item badge">required</span>
+                    )}{" "}
+                </div>
 
-                <input
-                    placeholder="Author"
-                    className="my-1 input input-bordered w-full"
-                    type="text"
-                    {...register("author", { required: true })}
-                />
-                {errors.author && <span>Author is required</span>}
+                <div className="indicator w-full">
+                    <input
+                        placeholder="Author"
+                        className="my-1 input input-bordered w-full"
+                        type="text"
+                        {...register("author", { required: true })}
+                    />
+                    {errors.author && (
+                        <span className="indicator-item badge">required</span>
+                    )}
+                </div>
 
-                <input
-                    placeholder="Image Link"
-                    className="my-1 input input-bordered w-full"
-                    type="text"
-                    {...register("image", { required: true })}
-                />
-                {errors.image && <span>Image is required</span>}
+                <div className="indicator w-full">
+                    <input
+                        placeholder="Image Link"
+                        className="my-1 input input-bordered w-full"
+                        type="text"
+                        {...register("image", { required: true })}
+                    />
+                    {errors.image && (
+                        <span className="indicator-item badge">required</span>
+                    )}
+                </div>
 
-                <input
-                    placeholder="Price"
-                    className="my-1 input input-bordered w-full"
-                    type="number"
-                    {...register("price", { required: true })}
-                />
-                {errors.price && <span>Price is required</span>}
+                <div className="indicator w-full">
+                    <input
+                        placeholder="Price"
+                        className="my-1 input input-bordered w-full"
+                        type="number"
+                        {...register("price", { required: true })}
+                    />
+                    {errors.price && (
+                        <span className="indicator-item badge">required</span>
+                    )}
+                </div>
 
-                <input
-                    placeholder="Genre"
-                    className="my-1 input input-bordered w-full"
-                    type="text"
-                    {...register("genre", { required: true })}
-                />
-                {errors.genre && <span>Genre is required</span>}
+                <div className="indicator w-full">
+                    <input
+                        placeholder="Genre"
+                        className="my-1 input input-bordered w-full"
+                        type="text"
+                        {...register("genre", { required: true })}
+                    />
+                    {errors.genre && (
+                        <span className="indicator-item badge">required</span>
+                    )}
+                </div>
 
-                <input
-                    placeholder="Date"
-                    className="my-1 input input-bordered w-full"
-                    type="date"
-                    {...register("publicationDate", { required: true })}
-                />
-                {errors.publicationDate && (
-                    <span>Publication Date is required</span>
-                )}
+                <div className="indicator w-full">
+                    <input
+                        placeholder="Date"
+                        className="my-1 input input-bordered w-full"
+                        type="date"
+                        {...register("publicationDate", { required: true })}
+                    />
+                    {errors.publicationDate && (
+                        <span className="indicator-item badge">required</span>
+                    )}
+                </div>
 
                 <input
                     className="my-1 input input-bordered w-full cursor-pointer	"
