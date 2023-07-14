@@ -29,7 +29,7 @@ export default function BookCards() {
                         </button>
                         <button className="btn btn-xs text-red-500">
                             Delete
-                        </button>
+                        </button> 
                     </div>
                 </div>
             </div>
