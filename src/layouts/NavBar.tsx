@@ -1,19 +1,22 @@
+import { Link } from "react-router-dom";
 import stockPhoto from "../assets/photo-1534528741775-53994a69daeb.jpg";
 
 export default function NavBar() {
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 px-52">
             <div className="navbar-start">
-                <a className="btn btn-ghost normal-case text-xl">BookShelf</a>
+                <Link to="/" className="btn btn-ghost normal-case text-xl">
+                    BookShelf
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    <li>
-                        <a>Books</a>
+                <ul className="menu menu-horizontal">
+                    <li className="px-2">
+                        <Link to="/">Books</Link>
                     </li>
 
-                    <li>
-                        <a>Add Book</a>
+                    <li className="px-2">
+                        <Link to="/add">Add Book</Link>
                     </li>
                 </ul>
             </div>

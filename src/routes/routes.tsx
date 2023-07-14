@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Add from "../pages/Add";
-import Edit from "../pages/Edit";
+import Edit from "../pages/Update";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
@@ -21,7 +21,7 @@ const routes = createBrowserRouter([
                 element: <Add />,
             },
             {
-                path: "/edit/:id",
+                path: "/update/:id",
                 element: <Edit />,
             },
         ],

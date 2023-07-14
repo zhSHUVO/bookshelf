@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function BookCards() {
     return (
         <div>
@@ -25,11 +27,11 @@ export default function BookCards() {
                     </p>
                     <div className="card-actions absolute bottom-5 right-5 ">
                         <button className="btn btn-xs text-blue-500">
-                            Update
+                            <Link to="/update/:id">Update</Link>
                         </button>
                         <button className="btn btn-xs text-red-500">
                             Delete
-                        </button> 
+                        </button>
                     </div>
                 </div>
             </div>
