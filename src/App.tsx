@@ -1,5 +1,13 @@
+import NavBar from "./layouts/NavBar";
+import Home from "./pages/Home";
+
 function App() {
-    return <h1 className="bg-red-500">Bookshelf</h1>;
+    return (
+        <>
+            <NavBar />
+            <Home />
+        </>
+    );
 }
 
 export default App;

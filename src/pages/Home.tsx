@@ -1,7 +1,9 @@
-
+import Books from "../layouts/Books";
 
 export default function Home() {
-  return (
-    <div>Home</div>
-  )
+    return (
+        <>
+            <Books />
+        </>
+    );
 }
