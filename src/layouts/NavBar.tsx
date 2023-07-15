@@ -3,14 +3,19 @@ import { Link } from "react-router-dom";
 import stockPhoto from "../assets/photo-1534528741775-53994a69daeb.jpg";
 import { auth } from "../lib/firebase";
 import { searchQuery } from "../redux/features/filter/filterSlice";
+import { setUser } from "../redux/features/user/userSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hook";
+import { toast } from "react-hot-toast";
 
 export default function NavBar() {
     const dispatch = useAppDispatch();
     const { user } = useAppSelector((state) => state.user);
 
     const handleLogout = () => {
-        signOut(auth);
+        signOut(auth).then(() => {
+            dispatch(setUser(null));
+            toast.success("User Logged Out")
+        });
     };
     return (
         <div className="navbar bg-base-100 px-52">

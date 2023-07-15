@@ -31,7 +31,7 @@ export default function Signup() {
 
     useEffect(() => {
         if (user.email) {
-            toast.success("User Account created successfully");
+            toast.success("User Account Created");
             navigate("/");
         }
     }, [user.email, navigate]);
