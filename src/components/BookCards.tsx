@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useDeleteBookMutation } from "../redux/features/book/booSlice";
 import { IBook } from "../types/globalTypes";
 
 interface IProp {
@@ -6,7 +7,8 @@ interface IProp {
 }
 
 export default function BookCards({ book }: IProp) {
-  
+    const [deleteBook] = useDeleteBookMutation();
+
     return (
         <div>
             <div className="card card-side bg-base-100 shadow-xl p-5 h-full">
@@ -33,7 +35,10 @@ export default function BookCards({ book }: IProp) {
                         <button className="btn btn-xs text-blue-500">
                             <Link to={`/update/${book._id}`}>Update</Link>
                         </button>
-                        <button className="btn btn-xs text-red-500">
+                        <button
+                            onClick={() => deleteBook(book._id)}
+                            className="btn btn-xs text-red-500"
+                        >
                             Delete
                         </button>
                     </div>
