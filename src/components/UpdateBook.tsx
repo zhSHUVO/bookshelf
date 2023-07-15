@@ -82,7 +82,7 @@ export default function UpdateBook({ book }: IProp) {
                     {...register("publicationDate")}
                 />
                 <input
-                    className="my-1 input input-bordered w-full cursor-pointer	"
+                    className="my-1 btn w-full cursor-pointer	"
                     type="submit"
                     value="Submit"
                 />

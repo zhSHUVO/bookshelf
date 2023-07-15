@@ -97,7 +97,7 @@ export default function AddForm() {
                 </div>
 
                 <input
-                    className="my-1 input input-bordered w-full cursor-pointer	"
+                    className="my-1 btn input input-bordered w-full cursor-pointer	"
                     type="submit"
                     value="Submit"
                 />

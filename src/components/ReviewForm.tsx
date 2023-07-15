@@ -27,7 +27,7 @@ export default function ReviewForm() {
                 />
 
                 <input
-                    className="my-1 input input-bordered cursor-pointer"
+                    className="my-1 btn cursor-pointer"
                     type="submit"
                     value="Submit"
                 />
