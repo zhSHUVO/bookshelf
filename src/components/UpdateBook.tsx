@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useUpdateBookMutation } from "../redux/features/book/booSlice";
 import { IBook } from "../types/globalTypes";
@@ -10,15 +11,11 @@ interface IProp {
 export default function UpdateBook({ book }: IProp) {
     const navigate = useNavigate();
 
-    const [updateBook, { isError, isLoading, isSuccess }] =
-        useUpdateBookMutation();
-
-    console.log(isLoading);
-    console.log(isError);
-    console.log(isSuccess);
+    const [updateBook] = useUpdateBookMutation();
 
     const { register, handleSubmit } = useForm<IBook>();
-    const onSubmit = (data: IBook) => {
+
+    const onSubmit = async (data: IBook) => {
         const filteredData = Object.fromEntries(
             Object.entries(data).filter(([, value]) => value !== "")
         );
@@ -26,9 +23,16 @@ export default function UpdateBook({ book }: IProp) {
             id: book?._id,
             data: filteredData,
         };
-        updateBook(updateInfo);
-        navigate("/");
+
+        try {
+            await updateBook(updateInfo);
+            navigate("/");
+            toast.success("Successfully updated!");
+        } catch (error) {
+            toast.error("There is an error updating book info!");
+        }
     };
+
     return (
         <div className="flex justify-center items-center ">
             <form

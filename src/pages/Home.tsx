@@ -1,9 +1,15 @@
+import { Link } from "react-router-dom";
 import Books from "../layouts/Books";
 
 export default function Home() {
     return (
         <>
             <Books />
+            <div className="flex justify-center">
+                <button className="btn">
+                    <Link to="/all">All Books</Link>
+                </button>
+            </div>
         </>
     );
 }
