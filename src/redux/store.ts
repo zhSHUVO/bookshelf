@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { api } from "../api/apiSlice";
+import filterReducer from "./features/filter/filterSlice";
 
 const store = configureStore({
     reducer: {
+        filter: filterReducer,
         [api.reducerPath]: api.reducer,
     },
     middleware: (getDefaultMiddleware) =>

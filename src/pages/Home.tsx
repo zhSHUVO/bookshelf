@@ -4,7 +4,7 @@ import Books from "../layouts/Books";
 export default function Home() {
     return (
         <>
-            <Books />
+            <Books limit={10}/>
             <div className="flex justify-center">
                 <button className="btn">
                     <Link to="/all">All Books</Link>

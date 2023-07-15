@@ -1,15 +1,17 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import stockPhoto from "../assets/photo-1534528741775-53994a69daeb.jpg";
+import { searchQuery } from "../redux/features/filter/filterSlice";
 
 export default function NavBar() {
+    const dispatch = useDispatch();
     return (
         <div className="navbar bg-base-100 px-52">
             <div className="navbar-start">
                 <Link to="/" className="btn btn-ghost normal-case text-xl">
                     BookShelf
                 </Link>
-            </div>
-            <div className="navbar-center hidden lg:flex">
+
                 <ul className="menu menu-horizontal">
                     <li className="px-2">
                         <Link to="/">Books</Link>
@@ -21,10 +23,30 @@ export default function NavBar() {
                 </ul>
             </div>
             <div className="navbar-end gap-2">
+                <div className="dropdown dropdown-hover dropdown-end">
+                    <label tabIndex={0} className="btn btn-ghost">
+                        Filter
+                    </label>
+                    <ul
+                        tabIndex={0}
+                        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box "
+                    >
+                        <li>
+                            <a>All</a>
+                        </li>
+                        <li>
+                            <a>Genre</a>
+                        </li>
+                        <li>
+                            <a>Publication Year</a>
+                        </li>
+                    </ul>
+                </div>
                 <div className="form-control">
                     <input
                         type="text"
                         placeholder="Search"
+                        onChange={(e) => dispatch(searchQuery(e.target.value))}
                         className="input input-bordered w-24 md:w-auto"
                     />
                 </div>

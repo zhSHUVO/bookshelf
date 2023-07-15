@@ -14,7 +14,6 @@ export default function AddForm() {
     } = useForm<IBook>();
 
     const onSubmit: SubmitHandler<IBook> = (data) => {
-        console.log(data);
         addBook(data);
         navigate("/");
         toast.success("Book added successfully");
