@@ -6,7 +6,7 @@ interface IProp {
 }
 
 export default function BookCards({ book }: IProp) {
-    console.log(book);
+  
     return (
         <div>
             <div className="card card-side bg-base-100 shadow-xl p-5 h-full">
@@ -31,7 +31,7 @@ export default function BookCards({ book }: IProp) {
                     </p>
                     <div className="card-actions absolute bottom-5 right-5 ">
                         <button className="btn btn-xs text-blue-500">
-                            <Link to="/update/:id">Update</Link>
+                            <Link to={`/update/${book._id}`}>Update</Link>
                         </button>
                         <button className="btn btn-xs text-red-500">
                             Delete
