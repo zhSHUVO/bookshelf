@@ -10,7 +10,6 @@ export default function ReviewForm() {
     const { register, handleSubmit } = useForm<IBook>();
 
     const onSubmit: SubmitHandler<IBook> = (data) => {
-        console.log(data);
         toast.success("Review added successfully");
     };
     return (

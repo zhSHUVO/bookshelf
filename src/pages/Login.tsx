@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { loginUser } from "../redux/features/user/userSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hook";
 
@@ -13,6 +13,7 @@ interface LoginFormInputs {
 export default function Login() {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const {
         register,
@@ -25,12 +26,15 @@ export default function Login() {
     const onSubmit = (data: LoginFormInputs) => {
         dispatch(loginUser({ email: data.email, password: data.password }));
     };
+
+    const path = location.state?.from || "/";
+
     useEffect(() => {
         if (user.email) {
             toast.success("User Logged In");
-            navigate("/");
+            navigate(path, { replace: true });
         }
-    }, [user.email, navigate]);
+    }, [user.email, navigate, path]);
 
     return (
         <div className="pt-20">

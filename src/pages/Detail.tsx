@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import ReviewForm from "../components/ReviewForm";
-import Reviews from "../components/ui/Reviews";
+import Reviews from "../components/Reviews";
 import {
     useDeleteBookMutation,
     useGetSingleBookQuery,
@@ -11,8 +11,6 @@ export default function Detail() {
     const { id } = useParams();
     const { data } = useGetSingleBookQuery(id);
     const book = data?.data;
-
-    console.log(book?.id);
 
     const [deleteBook] = useDeleteBookMutation();
 

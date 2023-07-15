@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 import Signup from "../pages/Signup";
 import Update from "../pages/Update";
+import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
     {
@@ -24,15 +25,27 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/add",
-                element: <Add />,
+                element: (
+                    <PrivateRoute>
+                        <Add />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "/update/:id",
-                element: <Update />,
+                element: (
+                    <PrivateRoute>
+                        <Update />
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "/details/:id",
-                element: <Detail />,
+                element: (
+                    <PrivateRoute>
+                        <Detail />
+                    </PrivateRoute>
+                ),
             },
         ],
     },
