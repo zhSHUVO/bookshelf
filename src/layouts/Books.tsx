@@ -9,28 +9,21 @@ interface IProps {
 }
 
 export default function Books({ limit = Infinity }: IProps) {
-    let { data: books } = useGetBooksQuery(undefined);
     const { search } = useSelector((state: RootState) => state.filter);
+    const { data: books } = useGetBooksQuery(undefined);
 
-    if (search) {
-        if (books?.data?.length > 0) {
-            books = books?.data?.filter((book: IBook) =>
-                book.title.toLowerCase().includes(search.toLowerCase())
-            );
-        }
-    } else {
-        books = books?.data;
-    }
+    const filteredBooks = search
+        ? books?.data?.filter((book: IBook) =>
+              book.title.toLowerCase().includes(search.toLowerCase())
+          )
+        : books?.data;
 
     return (
         <>
-            <div className="grid grid-cols-3 gap-12 px-52">
-                {books &&
-                    books
-                        ?.slice(0, limit)
-                        .map((book: IBook) => (
-                            <BookCards key={book._id} book={book} />
-                        ))}
+            <div className="grid grid-cols-5 gap-12 px-52 justify-items-center mt-10">
+                {filteredBooks?.slice(0, limit)?.map((book: IBook) => (
+                    <BookCards key={book._id} book={book} />
+                ))}
             </div>
         </>
     );

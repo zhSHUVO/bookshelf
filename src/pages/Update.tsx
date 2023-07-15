@@ -6,6 +6,8 @@ export default function Update() {
     const { id } = useParams();
     const { data: book } = useGetSingleBookQuery(id);
 
+    console.log(id);
+
     return (
         <div>
             <UpdateBook book={book?.data} />

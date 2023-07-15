@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useDeleteBookMutation } from "../redux/features/book/booSlice";
 import { IBook } from "../types/globalTypes";
 
 interface IProp {
@@ -7,20 +6,19 @@ interface IProp {
 }
 
 export default function BookCards({ book }: IProp) {
-    const [deleteBook] = useDeleteBookMutation();
-
     return (
-        <div>
-            <div className="card card-side bg-base-100 shadow-xl p-5 h-full">
-                <img className="w-48" src={book.image} alt="Book" />
-
-                <div className="card-body p-5">
+        <Link to={`/details/${book._id}`}>
+            <div className="card card-compact w-60 bg-base-100 shadow-xl h-full">
+                <figure>
+                    <img className="w-40" src={book.image} alt="Book" />
+                </figure>
+                <div className="card-body justify-end">
                     <h2 className="card-title">{book.title}</h2>
-                    <small>
+                    <p>
                         by
                         <span className="text-gray-600"> {book.author}</span>
-                    </small>
-                    <p className="mt-5">
+                    </p>
+                    <p>
                         <span className="font-bold">Price : </span>${book.price}
                     </p>
                     <p>
@@ -31,19 +29,8 @@ export default function BookCards({ book }: IProp) {
                         <span className="font-bold">Published : </span>
                         {book.publicationDate}
                     </p>
-                    <div className="card-actions absolute bottom-5 right-5 ">
-                        <button className="btn btn-xs text-blue-500">
-                            <Link to={`/update/${book._id}`}>Update</Link>
-                        </button>
-                        <button
-                            onClick={() => deleteBook(book._id)}
-                            className="btn btn-xs text-red-500"
-                        >
-                            Delete
-                        </button>
-                    </div>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 }
