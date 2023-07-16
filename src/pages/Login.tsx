@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Loading from "../components/ui/Loading";
 import { loginUser } from "../redux/features/user/userSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hook";
 
@@ -21,7 +22,7 @@ export default function Login() {
         formState: { errors },
     } = useForm<LoginFormInputs>();
 
-    const { user } = useAppSelector((state) => state.user);
+    const { user, isLoading } = useAppSelector((state) => state.user);
 
     const onSubmit = (data: LoginFormInputs) => {
         dispatch(loginUser({ email: data.email, password: data.password }));
@@ -36,9 +37,13 @@ export default function Login() {
         }
     }, [user.email, navigate, path]);
 
+    if (isLoading) {
+        return <Loading />;
+    }
+
     return (
         <div className="pt-20">
-            <h1 className="text-center text-3xl mb-5">Login</h1>
+            <h2 className="text-2xl font-bold text-center my-3">Login</h2>
             <div className="flex justify-center items-center ">
                 <form
                     onSubmit={handleSubmit(onSubmit)}
@@ -100,7 +105,9 @@ export default function Login() {
                 </Link>
             </p>
 
-            <div className="divider">OR</div>
+            <div className="flex justify-center items-center">
+                <div className="divider w-96">OR</div>
+            </div>
 
             <div className="flex justify-center items-center">
                 <button className="btn w-1/4">

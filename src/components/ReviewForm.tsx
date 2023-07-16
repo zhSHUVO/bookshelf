@@ -8,7 +8,7 @@ export default function ReviewForm() {
     const { id } = useParams();
     const { user } = useAppSelector((state) => state.user);
 
-    const { register, handleSubmit } = useForm<IBook>();
+    const { register, handleSubmit, reset } = useForm<IBook>();
 
     const [postReview] = usePostReviewMutation();
 
@@ -22,6 +22,8 @@ export default function ReviewForm() {
             data: { review: reviewObj },
         };
         postReview(reviewData);
+
+        reset();
     };
     return (
         <div className="w-[31rem]">

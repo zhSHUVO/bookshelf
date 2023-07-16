@@ -34,59 +34,62 @@ export default function UpdateBook({ book }: IProp) {
     };
 
     return (
-        <div className="flex justify-center items-center ">
-            <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="flex flex-col lg:w-1/4 w-3/4	shadow-2xl bg-base-100 rounded-xl p-5"
-            >
-                <input
-                    placeholder="Title"
-                    className="my-1 input input-bordered w-full"
-                    type="text"
-                    defaultValue={book?.title}
-                    {...register("title")}
-                />
-                <input
-                    placeholder="Author"
-                    className="my-1 input input-bordered w-full"
-                    type="text"
-                    defaultValue={book?.author}
-                    {...register("author")}
-                />
-                <input
-                    placeholder="Image Link"
-                    className="my-1 input input-bordered w-full"
-                    type="text"
-                    defaultValue={book?.image}
-                    {...register("image")}
-                />
-                <input
-                    placeholder="Price"
-                    className="my-1 input input-bordered w-full"
-                    type="number"
-                    defaultValue={book?.price}
-                    {...register("price")}
-                />
-                <input
-                    placeholder="Genre"
-                    className="my-1 input input-bordered w-full"
-                    type="text"
-                    defaultValue={book?.genre}
-                    {...register("genre")}
-                />
-                <input
-                    placeholder="Date"
-                    className="my-1 input input-bordered w-full"
-                    type="date"
-                    defaultValue={book?.publicationDate}
-                    {...register("publicationDate")}
-                />
-                <input
-                    className="my-1 btn w-full cursor-pointer	"
-                    type="submit"
-                    value="Submit"
-                />
-            </form>
+        <div>
+            <h2 className="text-2xl font-bold text-center my-3">Update Info</h2>
+            <div className="flex justify-center items-center ">
+                <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="flex flex-col lg:w-1/4 w-3/4	shadow-2xl bg-base-100 rounded-xl p-5"
+                >
+                    <input
+                        placeholder="Title"
+                        className="my-1 input input-bordered w-full"
+                        type="text"
+                        defaultValue={book?.title}
+                        {...register("title")}
+                    />
+                    <input
+                        placeholder="Author"
+                        className="my-1 input input-bordered w-full"
+                        type="text"
+                        defaultValue={book?.author}
+                        {...register("author")}
+                    />
+                    <input
+                        placeholder="Image Link"
+                        className="my-1 input input-bordered w-full"
+                        type="text"
+                        defaultValue={book?.image}
+                        {...register("image")}
+                    />
+                    <input
+                        placeholder="Price"
+                        className="my-1 input input-bordered w-full"
+                        type="number"
+                        defaultValue={book?.price}
+                        {...register("price")}
+                    />
+                    <input
+                        placeholder="Genre"
+                        className="my-1 input input-bordered w-full"
+                        type="text"
+                        defaultValue={book?.genre}
+                        {...register("genre")}
+                    />
+                    <input
+                        placeholder="Date"
+                        className="my-1 input input-bordered w-full"
+                        type="date"
+                        defaultValue={book?.publicationDate}
+                        {...register("publicationDate")}
+                    />
+                    <input
+                        className="my-1 btn w-full cursor-pointer	"
+                        type="submit"
+                        value="Submit"
+                    />
+                </form>
+            </div>
         </div>
     );
 }

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import Loading from "../components/ui/Loading";
 import { createUser } from "../redux/features/user/userSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hook";
 
@@ -21,7 +22,7 @@ export default function Signup() {
         formState: { errors },
     } = useForm<SignupFormInputs>();
 
-    const { user } = useAppSelector((state) => state.user);
+    const { user, isLoading } = useAppSelector((state) => state.user);
 
     const onSubmit = (data: SignupFormInputs) => {
         dispatch(createUser({ email: data.email, password: data.password }));
@@ -36,9 +37,13 @@ export default function Signup() {
         }
     }, [user.email, navigate]);
 
+    if (isLoading) {
+        return <Loading />;
+    }
+
     return (
         <div className="pt-20">
-            <h1 className="text-center text-3xl mb-5">SignUp</h1>
+            <h2 className="text-2xl font-bold text-center my-3">Sign In</h2>
             <div className="flex justify-center items-center ">
                 <form
                     onSubmit={handleSubmit(onSubmit)}
