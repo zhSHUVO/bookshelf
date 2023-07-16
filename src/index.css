@@ -5,3 +5,9 @@
 .card-body :where(p) {
     flex-grow: 0;
 }
+
+@media not all and (min-width: 768px) {
+    .card-side {
+        flex-direction: column;
+    }
+}

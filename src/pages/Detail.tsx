@@ -26,10 +26,14 @@ export default function Detail() {
     return (
         <div>
             <h2 className="text-2xl font-bold text-center my-3">Details</h2>
-            <div className="flex justify-center">
+            <div className="flex justify-center max-md:flex-col max-md:items-center">
                 <div className=" flex flex-col">
-                    <div className="card card-side shadow-2xl bg-base-100 p-5 h-full w-[31rem]">
-                        <img className="w-52" src={book?.image} alt="Book" />
+                    <div className="card card-side shadow-2xl bg-base-100 p-5 h-full lg:w-[31rem]">
+                        <img
+                            className="w-52 max-md:w-44 mx-auto"
+                            src={book?.image}
+                            alt="Book"
+                        />
 
                         <div className="card-body p-5">
                             <h2 className="card-title">{book?.title}</h2>
@@ -51,10 +55,10 @@ export default function Detail() {
                                 <span className="font-bold">Published : </span>
                                 {book?.publicationDate}
                             </p>
-                            <div className="card-actions absolute bottom-5 right-5 ">
+                            <div className="card-actions absolute bottom-5 right-5 max-md:bottom-2 max-md:right-2">
                                 <Link to={`/update/${book?.id}`}>
                                     {" "}
-                                    <button className="btn btn-sm text-blue-500">
+                                    <button className="btn btn-sm max-md:btn-xs text-blue-500">
                                         <svg
                                             stroke="currentColor"
                                             fill="currentColor"
@@ -71,7 +75,7 @@ export default function Detail() {
                                 </Link>
                                 <button
                                     onClick={() => handleDelete()}
-                                    className="btn btn-sm text-red-500"
+                                    className="btn btn-sm max-md:btn-xs text-red-500"
                                 >
                                     <svg
                                         stroke="currentColor"
@@ -91,7 +95,7 @@ export default function Detail() {
                     </div>
                     <ReviewForm />
                 </div>
-                <div className="ml-5">
+                <div className="lg:ml-5">
                     <Reviews book={book} />
                 </div>
             </div>

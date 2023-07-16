@@ -26,7 +26,7 @@ export default function ReviewForm() {
         reset();
     };
     return (
-        <div className="w-[31rem]">
+        <div className="lg:w-[31rem] mt-5">
             <form
                 onSubmit={(event) => void handleSubmit(onSubmit)(event)}
                 className="flex flex-col shadow-2xl bg-base-100 rounded-xl p-5"

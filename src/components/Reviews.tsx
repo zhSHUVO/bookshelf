@@ -9,8 +9,8 @@ interface IProps {
 export default function Reviews({ book }: IProps) {
     return (
         <div>
-            <div className="w-[35rem]">
-                <table className="table table-fixed">
+            <div className="lg:w-[35rem] mt-5">
+                <table className="table table-auto">
                     <thead>
                         <tr>
                             <th>Email</th>

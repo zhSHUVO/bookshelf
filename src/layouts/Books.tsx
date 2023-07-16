@@ -60,7 +60,7 @@ export default function Books({ limit = Infinity }: IProps) {
 
     return (
         <>
-            <div className="flex flex-row justify-end space-x-3 px-52">
+            <div className="flex flex-row justify-end space-x-3  px-5 md:px-10 lg:px-20">
                 <select
                     value={selectedYearOption}
                     onChange={handleYearSelect}
@@ -83,7 +83,7 @@ export default function Books({ limit = Infinity }: IProps) {
                 </select>
             </div>
 
-            <div className="grid grid-cols-5 gap-12 px-52 justify-items-center">
+            <div className="grid grid-cols-1 gap-12 px-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 justify-items-center">
                 {filteredBooks?.slice(0, limit)?.map((book: IBook) => (
                     <BookCards key={book._id} book={book} />
                 ))}
