@@ -30,11 +30,22 @@ This project is dependent on/interconnected with another backend project. Backen
     ```shell
     npm install
     ```
-4. Start the development server:
+4. Setup environment variable:
+
+    ```shell
+    VITE_apiKey="---------"
+    VITE_authDomain="---------"
+    VITE_projectId="---------"
+    VITE_storageBucket="---------"
+    VITE_messagingSenderId="---------"
+    VITE_appId="---------"
+    ```
+
+5. Start the development server:
     ```shell
     npm run dev
     ```
-5. Open web browser and visit `http://localhost:3000` to access the application.
+6. Open web browser and visit `http://localhost:3000` to access the application.
 
 ## Application Routes
 
