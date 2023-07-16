@@ -3,7 +3,7 @@ export default function Banner() {
         <div
             className="hero min-h-screen"
             style={{
-                backgroundImage: "url('src/assets/banner.jpg')",
+                backgroundImage: "url('/banner.jpg')",
             }}
         >
             <div className="hero-overlay bg-opacity-60"></div>
