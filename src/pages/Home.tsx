@@ -6,9 +6,9 @@ export default function Home() {
         <>
             <Books limit={10} />
             <div className="flex justify-center">
-                <button className="btn mt-10">
-                    <Link to="/all">All Books</Link>
-                </button>
+                <Link to="/all">
+                    <button className="btn mt-10">All Books</button>
+                </Link>
             </div>
         </>
     );

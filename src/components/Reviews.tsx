@@ -7,14 +7,13 @@ interface IProps {
 }
 
 export default function Reviews({ book }: IProps) {
-    console.log(book);
     return (
         <div>
             <div className="w-[35rem]">
                 <table className="table table-fixed">
                     <thead>
                         <tr>
-                            <th >Email</th>
+                            <th>Email</th>
                             <th>Review</th>
                         </tr>
                     </thead>

@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
-import stockPhoto from "../assets/photo-1534528741775-53994a69daeb.jpg";
+import stockPhoto from "../assets/defaultBg.jpg";
 import { auth } from "../lib/firebase";
 import { searchQuery } from "../redux/features/filter/filterSlice";
 import { setUser } from "../redux/features/user/userSlice";
@@ -36,25 +36,6 @@ export default function NavBar() {
                 </ul>
             </div>
             <div className="navbar-end gap-2">
-                <div className="dropdown dropdown-hover dropdown-end">
-                    <label tabIndex={0} className="btn btn-ghost">
-                        Filter
-                    </label>
-                    <ul
-                        tabIndex={0}
-                        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box "
-                    >
-                        <li>
-                            <a>All</a>
-                        </li>
-                        <li>
-                            <a>Genre</a>
-                        </li>
-                        <li>
-                            <a>Publication Year</a>
-                        </li>
-                    </ul>
-                </div>
                 <div className="form-control">
                     <input
                         type="text"
@@ -66,9 +47,9 @@ export default function NavBar() {
                 <div className="dropdown dropdown-end">
                     <label
                         tabIndex={0}
-                        className="btn btn-ghost btn-circle avatar"
+                        className="btn  avatar"
                     >
-                        <div className="w-10 rounded-full">
+                        <div className="w-10 rounded-xl">
                             <img src={stockPhoto} />
                         </div>
                     </label>

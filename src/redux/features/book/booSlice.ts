@@ -39,7 +39,7 @@ const bookApi = api.injectEndpoints({
                 method: "POST",
                 body: data,
             }),
-            invalidatesTags: ["book"],
+            invalidatesTags: ["book", "books"],
         }),
     }),
 });
