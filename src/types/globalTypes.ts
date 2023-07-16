@@ -8,3 +8,8 @@ export interface IBook {
     publicationDate: string;
     review?: object;
 }
+
+export type Review = {
+    email: string;
+    review: string;
+};
