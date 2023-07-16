@@ -90,7 +90,7 @@ export default function Detail() {
                 <ReviewForm />
             </div>
             <div className="ml-5">
-                <Reviews />
+                <Reviews  />
             </div>
         </div>
     );

@@ -6,5 +6,5 @@ export interface IBook {
     price: number;
     genre: string;
     publicationDate: string;
-    reviews?: object;
+    review?: object;
 }

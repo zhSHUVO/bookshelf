@@ -1,16 +1,27 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
-import { useAddBookMutation } from "../redux/features/book/booSlice";
+import { useParams } from "react-router-dom";
+import { usePostReviewMutation } from "../redux/features/book/booSlice";
+import { useAppSelector } from "../redux/hook";
 import { IBook } from "../types/globalTypes";
 
 export default function ReviewForm() {
-    const navigate = useNavigate();
-    const [addBook] = useAddBookMutation();
+    const { id } = useParams();
+    const { user } = useAppSelector((state) => state.user);
+
     const { register, handleSubmit } = useForm<IBook>();
 
+    const [postReview] = usePostReviewMutation();
+
     const onSubmit: SubmitHandler<IBook> = (data) => {
-        toast.success("Review added successfully");
+        const reviewObj = {
+            email: user?.email,
+            ...data,
+        };
+        const reviewData = {
+            id,
+            data: { review: reviewObj },
+        };
+        postReview(reviewData);
     };
     return (
         <div className="w-[31rem]">
@@ -22,7 +33,7 @@ export default function ReviewForm() {
                     placeholder="Review"
                     className="my-1 input input-bordered"
                     type="text"
-                    {...register("reviews")}
+                    {...register("review")}
                 />
 
                 <input
